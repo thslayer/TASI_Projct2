@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 Pedidos 🍕</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Fonte modificada */
+            text-align: left;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #F5D6C6; /* Cor de fundo modificada */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAQSURBVChTY5hACkGBgYB+D+v6///cQDmZKwMWGcAAAAASUVORK5CYII='); /* Imagem de fundo feita com códigos */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #FFF; /* Cor do texto modificada */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #B30000; /* Cor do título modificada */
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto; /* Centralizando o resumo do pedido */
+        }
+
+        table, th, td {
+            border: 1px solid rgba(255, 255, 255, 0.904);
+            padding: 10px;
+            color: #FFF; /* Cor do texto dentro da tabela modificada */
+        }
+
+        #pedido-total {
+            text-align: center; /* Centralizando o valor total do pedido */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🍕 Resumo do Pedido 🍕</h1>
+
+    <table>
+        <tr>
+            <th>----------- RESUMO DO PEDIDO -----------</th>
+        </tr>
+        <tr>
+            <td id="pedido-descricao"></td>
+        </tr>
+    </table>
+
+    <h2>Total do Pedido:</h2>
+    <p id="pedido-total">R$ ------</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            // Extrair os parametros da URL:
+            const urlParams = new URLSearchParams(window.location.search);
+            const pedidoString = urlParams.get('pedido');
+
+            if(pedidoString){
+                // Converter a String JSON em objeto JavaScript
+                const pedidoJSON = JSON.parse(pedidoString);
+
+                // Atualizar o conteudo da pagina com os detalhes do pedido
+                const descricaPedidoElement = document.getElementById('pedido-descricao');
+                descricaPedidoElement.innerHTML = pedidoJSON.descricao;
+
+                const totalPedidoElement = document.getElementById('pedido-total');
+                totalPedidoElement.textContent = 'Total do Pedido: R$ ' + pedidoJSON.total;
+            }
+        })
+    </script>
+
+</body>
+
+</html>

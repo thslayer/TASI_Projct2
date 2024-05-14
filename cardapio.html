@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 Pizzaria do Cleytin 🍕</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Fonte modificada */
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            background-color: #F5D6C6; /* Cor de fundo modificada */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAQSURBVChTY5hACkGBgYB+D+v6///cQDmZKwMWGcAAAAASUVORK5CYII='); /* Imagem de fundo feita com códigos */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo com transparência modificada */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 255, 255); /* Sombra */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #B30000; /* Cor do título modificada */
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #B30000; /* Cor de fundo do botão modificada */
+            color: #FFF; /* Cor do texto do botão modificada */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #800000; /* Cor de fundo do botão ao passar o mouse modificada */
+        }
+
+        #total-pedido {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #descricao-pedido {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>🍕 Pizzaria do Cleytin 🍕</h1>
+
+    <h2>Monte seu pedido abaixo!</h2>
+    <br><hr>
+    <h2>Selecione o sabor da pizza:</h2>
+    <p>Valores - (Pequena / Padrão / Gigante)</p>
+    <label>
+        <input type="radio" name="sabor" value="Margherita" data-sabor="Margherita">
+        Margherita (Pequena: R$ 18.75 / Padrão: R$ 25.00 / Gigante: R$ 44.50)
+    </label>
+    <label>
+        <input type="radio" name="sabor" value="Calabresa" data-sabor="Calabresa">
+        Calabresa (Pequena: R$ 21.00 / Padrão: R$ 28.00 / Gigante: R$ 35.00)
+    </label>
+    <label>
+        <input type="radio" name="sabor" value="Frango com Catupiry" data-sabor="Frango com Catupiry">
+        Frango com Catupiry (Pequena: R$ 22.50 / Padrão: R$ 30.00 / Gigante: R$ 35.00)
+    </label>
+    <label>
+        <input type="radio" name="sabor" value="Portuguesa" data-sabor="Portuguesa">
+        Portuguesa (Pequena: R$ 24.00 / Padrão: R$ 32.00 / Gigante: R$ 45.00)
+    </label>
+    <label>
+        <input type="radio" name="sabor" value="Quatro Queijos" data-sabor="Quatro Queijos">
+        Quatro Queijos (Pequena: R$ 26.25 / Padrão: R$ 35.00 / Gigante: R$ 49.75)
+    </label>
+    <br><hr>
+
+    <h2>Selecione o tamanho da Pizza:</h2>
+    <label>
+        <input type="radio" name="tamanho" value="Brotinho" data-tamanho="Pequena">
+        Pequena (20cm - 4 Pedaços)
+    </label>
+    <label>
+        <input type="radio" name="tamanho" value="Padrao" data-tamanho="Padrao">
+        Padrão (30cm - 8 Pedaços)
+    </label>
+    <label>
+        <input type="radio" name="tamanho" value="Grande" data-tamanho="Gigante">
+        Gigante (40cm - 12 Pedaçoes)
+    </label>
+    <br><hr>
+
+    <h2>Selecione o tipo de borda da Pìzza:</h2>
+    <label>
+        <input type="radio" name="borda" value="Sem Borda" data-borda="Sem Borda">
+        Sem Borda
+    </label>
+    <label>
+        <input type="radio" name="borda" value="Tradicional" data-borda="Tradicional">
+        Tradicional
+    </label>
+    <label>
+        <input type="radio" name="borda" value="Recheada Catupiry" data-borda="Recheada Catupiry">
+        Recheada Catupiry +R$ 5.00
+    </label>
+    <label>
+        <input type="radio" name="borda" value="Recheada Cheddar" data-borda="Recheada Cheddar">
+        Recheada Cheddar +R$ 5.00
+    </label>
+    <br><hr>
+
+    <h2>Selecione os ingredientes extras:</h2>
+    <label>
+        <input type="checkbox" name="extra-queijo" data-extra="extra-queijo">
+        Queijo Extra +R$ 5.00   
+    </label>
+    <label>
+        <input type="checkbox" name="extra-cheddar" data-extra="extra-cheddar">
+        Cheddar Extra +R$ 5.00   
+    </label>
+    <label>
+    <input type="checkbox" name="extra-bacon" data-extra="extra-bacon">
+    Bacon Extra +R$ 5.00
+</label>
+<label>
+    <input type="checkbox" name="extra-pepperoni" data-extra="extra-pepperoni">
+    Pepperoni +R$ 5.00
+</label>
+<br><hr>
+
+<h2>Selecione os Itens Opcionais (Sem Custo):</h2>
+<label>
+    <input type="checkbox" name="opcionais-azeitona" data-extra="opcionais-azeitona">
+    Azeitona
+</label>
+<label>
+    <input type="checkbox" name="opcionais-azeite" data-extra="opcionais-azeite">
+    Azeite
+</label>
+<label>
+    <input type="checkbox" name="opcionais-oregano" data-extra="opcionais-oregano">
+    Oregano
+</label>
+<label>
+    <input type="checkbox" name="opcionais-pimenta" data-extra="opcionais-pimenta">
+    Pimenta
+</label>
+<br><hr>
+
+<button>Montar Pizza</button>
+</div>
+
+<script src="./appPizzaria.js"></script>
+</body>
+
+</html>
